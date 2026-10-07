@@ -27,6 +27,13 @@ h2 {
   margin-bottom: 20px;
 }
 
+form {
+  margin-top: 20px;
+  background: #e0d4f0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
 button {
   background: #25c0eb;
   color: white;
