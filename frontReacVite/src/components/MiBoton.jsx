@@ -1,10 +1,10 @@
 import './MiBoton.css'
 function MiBoton() {
   const descargarCV = () => {
-    const urlPDF = '/cv_simple-Cordero.pdf';
+    const urlPDF = '/cv_simple-Bautista.pdf';
     const enlace = document.createElement('a');
     enlace.href = urlPDF;
-    enlace.download = 'cv_simple-Cordero.pdf';
+    enlace.download = 'cv_simple-Bautista.pdf';
     document.body.appendChild(enlace);
     enlace.click();
     document.body.removeChild(enlace);

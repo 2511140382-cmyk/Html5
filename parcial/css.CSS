@@ -1,0 +1,230 @@
+:root {
+  --color-fondo: #a9d2f2;
+  --color-fondo-2: #d9ecfb;
+  --color-tarjeta: #ffffff;
+  --color-principal: #0056b3;
+  --color-hover: #06376c;
+  --color-texto: #333333;
+  --color-borde: #cccccc;
+  --color-ok: #1e9e63;
+  --color-error: #d93636;
+}
+ 
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(160deg, var(--color-fondo) 0%, var(--color-fondo-2) 100%);
+  color: var(--color-texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 70px 15px 20px;
+}
+ 
+
+.estado {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 22px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: background-color 0.4s ease, opacity 0.5s ease, transform 0.4s ease;
+}
+ 
+.estado.online {
+  background-color: var(--color-ok);
+}
+ 
+.estado.offline {
+  background-color: var(--color-error);
+  animation: temblor 0.5s ease;
+}
+ 
+
+.estado.oculto {
+  opacity: 0;
+  transform: translate(-50%, -20px);
+  pointer-events: none;
+}
+ 
+.estado-punto {
+  width: 11px;
+  height: 11px;
+  background: #fff;
+  border-radius: 50%;
+  animation: pulso 1.5s infinite;
+}
+ 
+@keyframes pulso {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70%  { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+ 
+@keyframes temblor {
+  0%, 100% { margin-left: 0; }
+  25% { margin-left: -6px; }
+  75% { margin-left: 6px; }
+}
+ 
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+ 
+.card {
+  background-color: var(--color-tarjeta);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 86, 179, 0.2);
+  width: 100%;
+  border-top: 5px solid var(--color-principal);
+  animation: aparecer 0.6s ease;
+}
+ 
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+ 
+h2 {
+  text-align: center;
+  color: var(--color-principal);
+  margin: 0 0 5px;
+}
+ 
+.subtitulo {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0 0 22px;
+}
+ 
+.form-group {
+  margin-bottom: 16px;
+}
+ 
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+ 
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--color-borde);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: #fafcff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+ 
+textarea {
+  resize: vertical;
+}
+ 
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+ 
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-principal);
+  color: #fefdff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+ 
+button:hover:not(:disabled) {
+  background-color: var(--color-hover);
+}
+ 
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+ 
+button:disabled {
+  background-color: #9aa8b8;
+  cursor: not-allowed;
+}
+ 
+
+.aviso {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+ 
+.aviso.ok {
+  background: #e3f6ec;
+  color: #14724a;
+}
+ 
+.aviso.error {
+  background: #fde8e8;
+  color: #a62828;
+}
+ 
+
+footer {
+  text-align: center;
+  color: var(--color-texto);
+  font-size: 0.9rem;
+}
+ 
+footer p {
+  margin: 3px 0;
+}
+ 
+footer nav {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+}
+ 
+footer a {
+  color: var(--color-principal);
+  text-decoration: none;
+  font-weight: 600;
+}
+ 
+footer a:hover {
+  text-decoration: underline;
+}
