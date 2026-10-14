@@ -98,7 +98,6 @@ body {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 86, 179, 0.2);
   width: 100%;
-  border-top: 5px solid var(--color-principal);
   animation: aparecer 0.6s ease;
 }
  
